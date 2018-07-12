@@ -19,7 +19,27 @@ class App extends Component {
   focusSubmit = (e) => {
     e.preventDefault();
     console.log('try');
-  }
+
+    // Variables for receiving/ capturing values from our form
+    let data = this.state.data;
+    let name = this. refs.name.value;
+    let address = this.refs.address.value
+
+    // Varibales for holding the values are placed in an object;
+    let newData = {
+      name, address
+    }
+
+    data.push(newData);
+
+    // Set our new State in an object;
+    this.setState({
+      data: data
+    });
+
+    this.refs.myForm.reset();
+    this.refs.name.focus();
+  };
 
 
 
