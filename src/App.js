@@ -20,7 +20,7 @@ class App extends Component {
     e.preventDefault();
     console.log('try');
 
-    // Variables for receiving/ capturing values from our form
+    // Variables for receiving/ capturing values from our form;
     let data = this.state.data;
     let name = this.refs.name.value;
     let address = this.refs.address.value
@@ -37,26 +37,38 @@ class App extends Component {
       data: data
     });
 
-    // Resetting our form 
+    // Resetting our form; 
     this.refs.myForm.reset();
 
-    // focusing in name field
+    // focusing in name field;
     this.refs.name.focus();
   };
 
-  // Creating our Remove function
+  // Creating our Remove function;
   // We pass our index from the data & 
   // use SPlice() method to delete data in our object &
-  // update our state - set new state
+  // update our state - set new state;
   focusRemove = (index) => {
     let data = this.state.data;
     data.splice(index, 1);
     this.setState({ data: data 
   })
-    // Resetting our form 
+    // Resetting our form; 
     this.refs.myForm.reset();
 
-    // focusing in name field
+    // focusing in name field;
+    this.refs.name.focus();
+  }
+
+  // Creating our Edit function;
+  // Pass our object index as a parameter;
+  // We use ref to update the value from our form's field;
+  focusEdit = (index) => {
+    let editData = this.state.data[index];
+    this.refs.name.value = editData.name;
+    this.refs.address.value = editData.address;
+
+    // add focus to our name field;
     this.refs.name.focus();
   }
 
