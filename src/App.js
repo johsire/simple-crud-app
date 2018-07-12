@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      title: 'Simple React CRUD App',
+      act: 0,
+      index: '',
+      data: []
+    }
+  }
+
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <h2>{this.state.title}</h2>
+        <form ref="myForm" className="myForm">
+          <input type="text" ref="name" placeholder="your name" className="formField" />
+          <input type="text" ref="address" placeholder="your address" className="formField" />
+          <button onClick={this.fSubmit} className="myButton">Submmit </button>
+        </form>
+        <pre>
+        
+        </pre>
       </div>
     );
   }
