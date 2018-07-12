@@ -12,6 +12,15 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    this.refs.name.focus();
+  }
+
+  focusSubmit = (e) => {
+    e.preventDefault();
+    console.log('try');
+  }
+
 
 
   render() {
@@ -21,7 +30,7 @@ class App extends Component {
         <form ref="myForm" className="myForm">
           <input type="text" ref="name" placeholder="your name" className="formField" />
           <input type="text" ref="address" placeholder="your address" className="formField" />
-          <button onClick={this.fSubmit} className="myButton">Submmit </button>
+          <button onClick={this.focusSubmit} className="myButton">Submmit </button>
         </form>
         <pre>
         
