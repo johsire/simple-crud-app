@@ -22,7 +22,7 @@ class App extends Component {
 
     // Variables for receiving/ capturing values from our form
     let data = this.state.data;
-    let name = this. refs.name.value;
+    let name = this.refs.name.value;
     let address = this.refs.address.value
 
     // Varibales for holding the values are placed in an object;
@@ -37,13 +37,17 @@ class App extends Component {
       data: data
     });
 
+    // Resetting our form 
     this.refs.myForm.reset();
+
+    // focusing in name field
     this.refs.name.focus();
   };
 
 
 
   render() {
+    let data = this.state.data;
     return (
       <div className="App">
         <h2>{this.state.title}</h2>
@@ -53,7 +57,14 @@ class App extends Component {
           <button onClick={this.focusSubmit} className="myButton">Submmit </button>
         </form>
         <pre>
-        
+        {/* Using our function to loop through our data */}
+        {data.map((inputData, index) =>
+          <li key={index} className="myList">
+          {index + 1}. {inputData.name}, {inputData.address}
+          <button onClick ={ () => this.focusRemove(index)} className="myButton">Remove </button>
+          <button onClick ={ () => this.focusEdit(index)} className="myButton">Edit </button>
+          </li>
+        )}
         </pre>
       </div>
     );
