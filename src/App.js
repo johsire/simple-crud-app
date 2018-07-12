@@ -44,6 +44,21 @@ class App extends Component {
     this.refs.name.focus();
   };
 
+  // Creating our Remove function
+  // We pass our index from the data & 
+  // use SPlice() method to delete data in our object &
+  // update our state - set new state
+  focusRemove = (index) => {
+    let data = this.state.data;
+    data.splice(index, 1);
+    this.setState({ data: data 
+  })
+    // Resetting our form 
+    this.refs.myForm.reset();
+
+    // focusing in name field
+    this.refs.name.focus();
+  }
 
 
   render() {
